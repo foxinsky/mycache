@@ -2,7 +2,7 @@
 ## Content
 [DB schemas](#db-schemas)  
 [Modules](#modules)  
- [User management](#user-management)
+ * [User management](#user-management)
 	
 
 ## DB schemas ##
