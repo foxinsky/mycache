@@ -7,7 +7,7 @@
 
 ## DB schemas ##
 
-**Table: users**
+**Table: users**  
 Data in this table is dynamic and updates in the following cases:
  * new user registration
  * existed user changes own profile
@@ -23,8 +23,8 @@ account_type | byte | (free, premium) link to account_types table
 is_active | boolean | Changes after account activation, 
 
 
-**Table: account_types**
-Data in this table is static and filled up on DB creation procedure.
+**Table: account_types**  
+Data in this table is static and filled up on DB creation procedure.  
 Data can be updated only by devs in case of:
  * adding new account type
  * editing existed account type (rare operation)
