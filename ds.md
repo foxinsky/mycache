@@ -1,10 +1,12 @@
 # Design Specification#
+## Content
+[DB schemas](#db schemas)
+[Modules](#modules)
+	[User management](#User management)
 
 ## DB schemas ##
 
 ## Modules ##
-
-### List of modules ###
 
 #### User management
 
