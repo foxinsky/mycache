@@ -8,5 +8,5 @@ CREATE TABLE users (
 	dbname varchar(20) NOT NULL,
 	ctime timestamp DEFAULT CURRENT_TIMESTAMP(),
 	mtime timestamp On update current_timestamp(),
-	PRIMARY KEY (user_id),	
+	PRIMARY KEY (user_id)	
 )	ENGINE=InnoDB DEFAULT CHARSET=utf8;
