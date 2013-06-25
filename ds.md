@@ -27,7 +27,7 @@ is_active | boolean | Changes after account activation
 ctime | timestamp | Unix time of account creation
 mtime | timestamp |  Unix time of last account change
 dbname | varchar | name for user's DB with finance information
-fail_count | int | amount of the fail logins (should we move it to **auth** table? )
+
 
 **Table: account_types**  
 Data in this table is static and filled up on DB creation procedure.  
