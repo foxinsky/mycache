@@ -20,7 +20,9 @@ email | varchar() | email, filled on registration
 name | varchar | nickname, filled on registration
 passwd | varchar | md5 hash from password which filled on registration
 account_type | byte | (free, premium) link to account_types table
-is_active | boolean | Changes after account activation, 
+is_active | boolean | Changes after account activation
+ctime | timestamp(?) | Unix time of account creation
+mtime | timestamp |  Unix time of last account change
 
 
 **Table: account_types**  
