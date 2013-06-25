@@ -7,6 +7,9 @@
 
 ## DB schemas ##
 
+**fieldname** - primary key
+*fieldname* - secondary key
+
 **Table: users**  
 Data in this table is dynamic and updates in the following cases:
  * new user registration
@@ -15,13 +18,13 @@ Data in this table is dynamic and updates in the following cases:
  
 Field | Type | Description
 --- | --- | ---
-user_id | bigint | autoincrement id
+**user_id** | bigint | autoincrement id
 email | varchar() | email, filled on registration
 name | varchar | nickname, filled on registration
 passwd | varchar | md5 hash from password which filled on registration
-account_type | byte | (free, premium) link to account_types table
+*account_type* | byte | (free, premium) link to account_types table
 is_active | boolean | Changes after account activation
-ctime | timestamp(?) | Unix time of account creation
+ctime | timestamp | Unix time of account creation
 mtime | timestamp |  Unix time of last account change
 
 
@@ -34,7 +37,7 @@ Data can be updated only by devs in case of:
  
 Field | Type | Description
 --- | --- | ---
-acctype_id | byte | autoincrement id
+**acctype_id** | byte | autoincrement id
 acctype_str | varchar | string representation of the account (disable, free, premium, extra premium, admin, etc)
 acctype_descr | text | short description of the account's feature
 
