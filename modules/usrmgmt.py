@@ -26,10 +26,10 @@ def isUserRegistered(username, email):
 		
 	#normal flow
 	cursor = cnx.cursor()
-	query = ("SELECT name FROM users"
-			 "WHERE email like %s ")
-	cursor.execute(query, email)
-	pprint.pprint (cursor)
+	query = ("SELECT name FROM users WHERE email = %s")
+	cursor.execute(query, (email,))
+	rez = cursor.fetchall()
+	pprint.pprint(rez)
 	cursor.close()
 	cnx.close()
 		
@@ -63,6 +63,22 @@ def UserAdd(username, passwd, email, account_type = 1):
 	  
 	"""
 	
+	try:
+		cnx = mysql.connector.connect(**dbconfig)
+	except mysql.connector.Error as err:
+		print(err)
+	
+	cursor = cnx.cursor()
+	query = ("INSERT INTO users "
+			 "(email, name, passwd, dbname) "
+			 "VALUES (%s, %s, %s, %s)")	
+	query_values = (email, username, passwd, 'testuser_db')
+		 
+	cursor.execute(query, query_values)	
+	cnx.commit()
+	
+	cursor.close()
+	cnx.close()	
 	retcode = 0
 	return retcode
 
@@ -105,4 +121,3 @@ def AcctypeDel():
 def AcctypeList():
 	retcode = 0
 	return retcode
-
