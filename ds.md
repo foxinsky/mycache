@@ -46,6 +46,10 @@ acctype_descr | text | short description of the account's feature
 
 ## Modules ##
 
+External dependency:
+
+ * python-mysql.connector
+
 #### User management
 
 #### Authority
