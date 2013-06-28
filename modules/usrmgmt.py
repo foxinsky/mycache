@@ -18,7 +18,8 @@ def is_user_reg(username=None, email=None):
     
     :param username:    Username for checking, default = None
     :param email:       Email address for checking, default = None
-    
+
+    return 0 or  1
     """
 
     try:
@@ -49,14 +50,22 @@ def is_user_reg(username=None, email=None):
 
 
 def is_username_valid(username):
+   """
+    Check if username id valid.
+    Valid username should be at leas 5 chars and may include CAPITALIZED and normal alphabetical (A-Z and a-z)chars.
+    Numbers and special characters are prohibited
     
-    rez = re.search(r'^[A-z][A-z|\.|\s]+$',username) != None
-    retcode = 0
-    return rez
+    :param username:    Username for checking
+
+    return boolean  
+    
+    """    
+    retcode = re.match(r'^[A-Z|a-z]{5,}$',username) != None
+    return retcode
 
 def is_email_valid(email):
 
-    retcode = rez
+    retcode = retcode = re.match(r'^[A-Z|a-z]{5,}$',username) != None
     return retcode
 
 
