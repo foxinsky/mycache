@@ -11,7 +11,7 @@ dbconfig  = {
   'database': config.dbname,
 }
 
-def is_user_registered(username=None, email=None):
+def is_user_reg(username=None, email=None):
     """
     Check if user with <username> or <email> has already registered in the system
     you should set at least one parameter
