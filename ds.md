@@ -52,6 +52,27 @@ External dependency:
 
 #### User management
 
+**is_user_registered**(username=None, email=None):
+
+    Check if user with <username> or <email> has already registered in the system
+    you should set at least one parameter
+    
+    :param username:    Username for checking, default = None
+    :param email:       Email address for checking, default = None
+
+    :return 1 or 0:     Return "1" if user is already registered.     
+
+**is_username_valid**(username)
+
+	Check if username is valid. Valid username should be at least 5 alphabetical chars, without numbers and special symbols.
+
+	:return 1 or 0:		Returns "1" if username is valid.
+
+
+
+    
+
+
 #### Authority
 
 #### Charts
