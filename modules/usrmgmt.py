@@ -50,13 +50,13 @@ def is_user_registered(username=None, email=None):
 
 def is_username_valid(username):
     
-    rez = re.search(r'^[A-z][A-z|\.|\s]+$',username) != None
+    rez = re.match(r'^[A-z][A-z|\.|\s]+$',username) != None
     retcode = 0
     return rez
 
 def is_email_valid(email):
 
-    retcode = rez
+    rez = re.match(r'^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email) != None
     return retcode
 
 
