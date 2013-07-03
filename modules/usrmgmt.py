@@ -16,7 +16,7 @@ def db_open():
         cnx = mysql.connector.connect(**dbconfig)
     except mysql.connector.Error as err:
         print(err)
-	return cnx
+    return cnx
 
 def db_close(cnx, cursor=None):
 
@@ -25,7 +25,7 @@ def db_close(cnx, cursor=None):
 			cursor.close()
 		cnx.close()
 	except mysql.connector.Error as err:
-        print(err)
+		print(err)
         		
 
 def is_user_registered(username=None, email=None):
@@ -37,12 +37,8 @@ def is_user_registered(username=None, email=None):
     :param email:       Email address for checking, default = None
     
     """
-
-    try:
-        cnx = mysql.connector.connect(**dbconfig)
-    except mysql.connector.Error as err:
-        print(err)
-        
+ 
+    cnx = db_open()    
     cursor = cnx.cursor()
     if username is not None:
         query = ("SELECT name FROM users WHERE name = %s")
@@ -51,16 +47,16 @@ def is_user_registered(username=None, email=None):
         query = ("SELECT email FROM users WHERE email = %s")
         cursor.execute(query, (email,))
     else:
-        return 0
+        return False
             
     rez = cursor.fetchall()
     cursor.close()
     cnx.close()
     
     if len(rez) > 0:
-        retcode = 1
+        retcode = True
     else: 
-        retcode = 0
+        retcode = False
         
     return retcode
 
@@ -68,13 +64,12 @@ def is_user_registered(username=None, email=None):
 def is_username_valid(username):
     
     rez = re.match(r'^[A-z][A-z|\.|\s]+$',username) != None
-    retcode = 0
     return rez
 
 def is_email_valid(email):
 
     rez = re.match(r'^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email) != None
-    return retcode
+    return rez
 
 def user_DB_create(dbname):
 
