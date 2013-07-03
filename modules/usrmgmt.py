@@ -11,15 +11,31 @@ dbconfig  = {
   'database': config.dbname,
 }
 
-def is_user_reg(username=None, email=None):
+def db_open():
+    try:
+        cnx = mysql.connector.connect(**dbconfig)
+    except mysql.connector.Error as err:
+        print(err)
+	return cnx
+
+def db_close(cnx, cursor=None):
+
+	try:
+		if cursor is not None:
+			cursor.close()
+		cnx.close()
+	except mysql.connector.Error as err:
+        print(err)
+        		
+
+def is_user_registered(username=None, email=None):
     """
     Check if user with <username> or <email> has already registered in the system
     you should set at least one parameter
     
     :param username:    Username for checking, default = None
     :param email:       Email address for checking, default = None
-
-    return 0 or  1
+    
     """
 
     try:
@@ -50,24 +66,21 @@ def is_user_reg(username=None, email=None):
 
 
 def is_username_valid(username):
-   """
-    Check if username id valid.
-    Valid username should be at leas 5 chars and may include CAPITALIZED and normal alphabetical (A-Z and a-z)chars.
-    Numbers and special characters are prohibited
     
-    :param username:    Username for checking
-
-    return boolean  
-    
-    """    
-    retcode = re.match(r'^[A-Z|a-z]{5,}$',username) != None
-    return retcode
+    rez = re.match(r'^[A-z][A-z|\.|\s]+$',username) != None
+    retcode = 0
+    return rez
 
 def is_email_valid(email):
 
-    retcode = retcode = re.match(r'^[A-Z|a-z]{5,}$',username) != None
+    rez = re.match(r'^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email) != None
     return retcode
 
+def user_DB_create(dbname):
+
+	
+
+    return retcode
 
 def UserAdd(username, passwd, email, account_type = 1):
     """
