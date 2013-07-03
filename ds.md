@@ -65,10 +65,17 @@ External dependency:
 **is_username_valid**(username)
 
 	Check if username is valid. Valid username should be at least 5 alphabetical chars, without numbers and special symbols.
+	Validation performs using the following regexp:
+	^[A-z][A-z|\.|\s]+$
 
 	:return 1 or 0:		Returns "1" if username is valid.
 
+**is_email_valid**(email):
 
+	Check if email is valid. Validation perfirms using the following regexp:
+	^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$
+
+	:return 1 or 0:	Returns "1" if email is valid. 
 
     
 
