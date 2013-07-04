@@ -56,9 +56,13 @@ External dependency:
 
 Check if user with <username> or <email> has already registered in the system
 you should set at least one parameter
-    
+
+Params:
+
     :param username:    Username for checking, default = None
     :param email:       Email address for checking, default = None
+
+Return:
 
     :return 1 or 0:     Return "1" if user is already registered.     
 
@@ -69,6 +73,8 @@ Validation performs using the following regexp:
 
 	^[A-z][A-z|\.|\s]+$
 
+Return:
+
 	:return 1 or 0:		Returns "1" if username is valid.
 
 **is_email_valid**(email):
@@ -77,9 +83,30 @@ Check if email is valid. Validation perfirms using the following regexp:
 
 	^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$
 
+Return:
+
 	:return 1 or 0:	Returns "1" if email is valid. 
 
-    
+**db_open**()
+
+Open DB using configuration form top of module
+
+	:return cnx:	DB context
+	
+**db_close**(cnx, cursor=None)
+
+Close DB using *cnx* as context and *cursor* as a cursor pointers
+
+Parameters:
+
+	:param cnx:	DB context
+	:param cursor:	DB cursor, used for requests to DB
+	
+Return:
+
+	nothing
+	
+Print error in case of DB-related errors	
 
 
 #### Authority
