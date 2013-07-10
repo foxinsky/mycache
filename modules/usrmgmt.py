@@ -71,7 +71,7 @@ def is_email_valid(email):
     rez = re.match(r'^[_a-z0-9-]+(\.[_a-z0-9-]+)*(\+[_a-z0-9-]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email) != None
     return rez
 
-def user_DB_create(dbname):
+def user_db_create(dbname):
 
 	
 
